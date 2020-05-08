@@ -1,6 +1,7 @@
 #include <iostream>
 #include<cstdlib>
 #include <ctime>
+#include<iomanip>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -8,7 +9,6 @@ bool MCD(int, int);
 int* llenado(int array[], int n);
 int* simulacion(int array[], int n);
 void imprimir(int [], int);
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 using namespace std;
 long * pascal(int fila);
 int main(int argc, char** argv) {
@@ -40,10 +40,20 @@ int main(int argc, char** argv) {
 			break;
 		 }
            case 2:{
-           	    //Lectura d la fila a calcular
-
-
-  
+           	    int indice;
+           	    cout<< " Ingrese un numero: "<<endl;
+           	    cin>>indice;
+           	    int matriz[indice][indice];
+           	    for(int i=0; i< indice; i++){
+           	    	matriz[i][0]=1;
+           	    	matriz[i][i+1]=1;
+           	    	cout<<"\n\n"<<"   ";
+           	    	for(int j=0; j<i+2; j++){
+           	    		matriz[i+1][j+1]=matriz[i][j]+matriz[i][j+1];
+           	    		cout<<matriz[i][j]<<"  ";
+					}
+					   cout<<endl;
+				   }
 			break;
 		   }
             
@@ -171,6 +181,9 @@ int* simulacion(int array[], int n){
 
 		
 	}
+
+	
+
 	
 
 	
