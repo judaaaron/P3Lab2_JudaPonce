@@ -6,6 +6,7 @@ using std::cout;
 using std::endl;
 bool MCD(int, int);
 int* llenado(int array[], int n);
+int* simulacion(int array[], int n);
 void imprimir(int [], int);
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 using namespace std;
@@ -58,7 +59,8 @@ int main(int argc, char** argv) {
 				int array[size];
 				int *punti;
 				punti=llenado(array,size);
-				imprimir(array,size);
+				int* game;
+				game=simulacion(array,size);
 			break;
 		   }
 		   
@@ -110,6 +112,67 @@ void imprimir(int array[], int n){
 		
 		cout<<endl;
 }
+
+
+int* simulacion(int array[], int n){
+	int puntosJugador1=0, puntosJugador2=0;
+	int numeroSeleccionado, chooseNumber, chooseNumber1, turnos=1;
+	int rondas=n/2;
+	for(int i=1; i<= rondas; i++){
+			cout<<"Jugador 1 escoger: ";
+			cin>>chooseNumber;
+			cout<<"Jugador 2 escoge: ";
+			cin>>chooseNumber1;
+			while(chooseNumber >= n){
+				cout<<" El numero sobrepasa el limite"<<endl;
+				cout<<" Ingrese un numero nuevo: "<<endl;
+				cin>> chooseNumber;
+			}
+				while(chooseNumber1 >= n){
+				cout<<" El numero sobrepasa el limite"<<endl;
+				cout<<" Ingrese un numero nuevo: "<<endl;
+				cin>> chooseNumber1;
+			}
+			while(chooseNumber==chooseNumber1){
+				cout<<"Este numero ya ha sido seleccionado"<<endl;
+				cout<<" Favor ingrese un numero nuevo: "<<endl;
+				cin>>chooseNumber;
+				cout<<endl;
+			}
+			
+			while(chooseNumber1==chooseNumber){
+				cout<<" Este numero ya ha sido seleccionado"<<endl;
+				cout<<" Favor ingrese un numero nuevo: "<<endl;
+				cin>>chooseNumber1;
+				cout<<endl;
+			}
+			cout<<endl;
+			cout<<" El jugador: "<<1<<" obtuvo: "<<array[chooseNumber]<<endl;
+			puntosJugador1+=array[chooseNumber];
+			turnos++;
+			cout<<" El jugador: "<<2<<" obtuvo : "<<array[chooseNumber1]<<endl;
+			puntosJugador2+=array[chooseNumber1];
+			turnos++;
+			cout<<" Ronda "<<i<< " Jugador 1: "<< puntosJugador1 << "  <->  "<< " Jugador 2: "<<puntosJugador2<<endl;
+			cout<<endl;
+		}
+		
+		if(puntosJugador1 == puntosJugador2){
+			cout<<" Hubo un empate"<<endl;
+			cout<<endl;
+		}else if(puntosJugador1> puntosJugador2){
+			cout<<" El jugador 1 gana con: "<< puntosJugador1 << " puntos"<<endl;
+			cout<<endl;
+		}else{
+		cout<<" El jugador 2 gana con: "<< puntosJugador2 << " puntos"<<endl;	
+		cout<<endl;
+		}
+		imprimir(array,n);
+
+		
+	}
+	
+
 	
 
 
