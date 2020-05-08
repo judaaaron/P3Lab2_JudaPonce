@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 	 	case 1: {
 	 		int contadorFi=0;
 	 		int inputNumber;
-	 		cout<<"Ingrese un numero: ";
+	 		cout<<"	Ingrese un numero: ";
 	 		cin>>inputNumber;
 	 		bool confirmacion=false;
 	 		for(int i=1; i<=inputNumber; i++){
@@ -93,8 +93,9 @@ int main(int argc, char** argv) {
 }
 
 bool MCD(int numerador, int denominador){
-	if((numerador>denominador) && denominador!=0){
-		int residuo = numerador % denominador;
+	int residuo;
+	if((numerador>denominador) && (numerador>denominador) && denominador!=0){
+		 residuo = numerador % denominador;
 		MCD(denominador,residuo);
 		
 	}else{
@@ -187,6 +188,20 @@ int* simulacion(int array[], int n){
 		
 	}
 
+ int recur(int numerador,int denominador){
+ 	int resi;
+ 	int n=numerador,d=denominador;
+ 	if((numerador>0 && denominador>0) && (numerador>denominador) && denominador!=0){
+ 		resi=numerador%denominador;
+ 		cout<<numerador<<"mod"<<denominador<<"="<<resi<<endl;
+ 		recur(denominador, resi);
+	}else{
+	 	cout<< "mcd(" << n << "," << d << ") = " << numerador << endl;
+	 	}
+	 
+	 return 0;
+ 	
+ }
 	
 
 	
