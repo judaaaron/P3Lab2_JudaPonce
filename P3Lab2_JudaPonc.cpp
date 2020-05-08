@@ -10,7 +10,6 @@ int* llenado(int array[], int n);
 int* simulacion(int array[], int n);
 void imprimir(int [], int);
 using namespace std;
-long * pascal(int fila);
 int main(int argc, char** argv) {
 	
 	int opcion;
@@ -49,7 +48,7 @@ int main(int argc, char** argv) {
            	    for(int i=0; i< indice-1; i++){
            	    	if(i==0){
            	    		matriz[0][0]=1;
-					   }
+					}
            	    	matriz[i][0]=1;
            	    	matriz[i][i+1]=1;
            	    	cout<<" "<<endl;
@@ -97,7 +96,6 @@ bool MCD(int numerador, int denominador){
 	if((numerador>denominador) && (numerador>denominador) && denominador!=0){
 		 residuo = numerador % denominador;
 		MCD(denominador,residuo);
-		
 	}else{
 		if(numerador==1){
 			return true;
