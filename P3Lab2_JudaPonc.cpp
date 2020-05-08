@@ -43,14 +43,19 @@ int main(int argc, char** argv) {
            	    int indice;
            	    cout<< " Ingrese un numero: "<<endl;
            	    cin>>indice;
+           	    cout<<" El triangulo de pascal para el numero "<< indice<< " es: "<<endl;
            	    int matriz[indice][indice];
-           	    for(int i=0; i< indice; i++){
+           	    cout<<1<<endl;
+           	    for(int i=0; i< indice-1; i++){
+           	    	if(i==0){
+           	    		matriz[0][0]=1;
+					   }
            	    	matriz[i][0]=1;
            	    	matriz[i][i+1]=1;
-           	    	cout<<"\n\n"<<"   ";
+           	    	cout<<" "<<endl;
            	    	for(int j=0; j<i+2; j++){
            	    		matriz[i+1][j+1]=matriz[i][j]+matriz[i][j+1];
-           	    		cout<<matriz[i][j]<<"  ";
+           	    		cout<<matriz[i][j]<<" ";
 					}
 					   cout<<endl;
 				   }
